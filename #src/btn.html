@@ -1,0 +1,45 @@
+@@include("./html/body_top.html")
+<br><br><br>
+<section class="_render_section"
+data-header="burger_btn_rotate_show"
+data-details_title="
+# Что для кнопки, что для меню, добавляется атрибут <b>active</b>
+#Слушатель для кнопки чтобы найти меню класс <b>_btn_listener</b> и <b>data-where_droper='название'</b>
+#Слушатель меню чтобы найти кнопку класс <b>_this_droper</b> и <b>data-where_listener='название'</b>"
+data-view_code_key="burger_btn_rotate_show"
+data-objec_key="btn_burgers"
+> 
+<div class="d-flex justify-content-around align-items-center">
+  
+  <div class="d-inline-flex flex-column align-items-center">
+    <button class="btn btn-outline-success d-inline-flex justify-content-center align-items-center mb-3 _mini_btn_view_code" 
+    data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
+    data-view_code_key="burger_btn_rotate_show"
+    data-objec_key="btn_burgers">
+    <ion-icon name="code-slash"></ion-icon></button>
+    <button class="burger_btn_rotate_show _btn_listener" data-where_droper="test" type="button" aria-label="Toggle Burger Button"></button>
+  </div>
+
+  <div class="d-inline-flex flex-column align-items-center">
+    <button class="btn btn-outline-success d-inline-flex justify-content-center align-items-center mb-3 _mini_btn_view_code" 
+    data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
+    data-view_code_key="burger_btn_w_change"
+    data-objec_key="btn_burgers">
+    <ion-icon name="code-slash"></ion-icon></button>
+    <button class="burger_btn_w_change _btn_listener" data-where_droper="test" type="button" aria-label="Toggle Burger Button"></button>
+  </div>
+
+  <div class="d-inline-flex flex-column align-items-center">
+    <button class="btn btn-outline-success d-inline-flex justify-content-center align-items-center mb-3 _mini_btn_view_code" 
+    data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
+    data-view_code_key="burger_btn_w_right_change"
+    data-objec_key="btn_burgers">
+    <ion-icon name="code-slash"></ion-icon></button>
+    <button class="burger_btn_w_right_change _btn_listener" data-where_droper="test" type="button" aria-label="Toggle Burger Button"></button>
+  </div>
+
+</div> 
+</section>
+ 
+ 
+@@include("./html/body_bot.html")

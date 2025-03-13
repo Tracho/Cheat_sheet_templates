@@ -1,0 +1,87 @@
+
+$or_bg_navi: #bedfff; // Задний фон контейнера
+$or_mxW: 1320px; // Максимальный размер width контейнера
+$or_logoWH: 45px; // размер логотипа
+$or_logo_mr_e: 25px; // отступ от логотипа справа 
+$or_li_mr: 7px; // отступы между ul > li навигация ссылок
+$or_li_a_fs: clamp(1.125rem, 1.0804rem + 0.1429vw, 1.1875rem); // размер ссылок в навигации W1200 - W500 19px - 18px 
+$or_li_a_fw: 600; // Насколько жирный шрифт ссылок
+$or_li_a_color: #303030; // цвет ссылок в навигации
+$or_li_a_color_hover:#b60909; // Hover цвет ссылок в навигации
+
+
+@mixin d_center{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.or_navi_container_fluid{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .or_navi_container_lg{
+    @include d_center();
+    background-color: $or_bg_navi;
+    max-width: $or_mxW;
+    width: 100%;
+    padding: 15px;
+
+    .or_navi_navigation_left{
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+.or_navi_logotyp{
+  margin-right: $or_logo_mr_e;
+  a{
+    display: inline-flex;
+  }
+  .or_logo{
+    display: block;
+    width: $or_logoWH;
+    height: $or_logoWH;
+    img{
+      object-fit: cover;
+    }
+  }
+}
+
+.or_navi_row{
+  .or_navi_row_ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    .or_navi_row_li{
+      margin: 0px $or_li_mr;
+      
+      a:first-child{
+        font-size: $or_li_a_fs;
+        text-decoration: none;
+        color: $or_li_a_color;
+        transition: color 0.3s ease;
+        font-weight: $or_li_a_fw;
+        &:hover{
+          color: $or_li_a_color_hover;
+        }
+      }
+    }
+    .or_navi_row_li:first-child{
+      margin-left: 0px;
+    }
+    .or_navi_row_li:last-child{
+      margin-right: 0px;
+    }
+  }
+}
+
+.or_navi_burger{
+  .burger_btn{
+    background: none;
+    border: none;
+  } 
+}
+ 

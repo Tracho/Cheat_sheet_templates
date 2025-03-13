@@ -1,0 +1,37 @@
+body {
+  margin          : 0 auto;
+  padding         : 0;
+  overflow-x      : hidden;
+  /* Отключение горизонтальной прокрутки */
+  width           : 100%;
+  background-color: #FEFFF0;
+}
+* {
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300 700;
+  font-style: normal;
+}
+details{
+  p:last-child{
+    margin-bottom: 0 !important;
+  }
+}
+/* #WH #wh Width Height start */
+.wh21px{
+  width           : $wh21px;
+  height          : $wh21px;
+}
+/* #WH #wh Width Height end */
+
+/* #BG #BG Background Color start */
+.bg_info{
+  background-color: $info;
+}
+/* #BG #BG Background Color end*/
+
+/* #BR #br border  start*/
+.border_deshed{
+  border-style:dashed;
+} 
+/* #BR #br border  end*/
