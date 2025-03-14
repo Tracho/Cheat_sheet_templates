@@ -24,7 +24,9 @@ let data = null;
 }loadJson();
 (async () => {
   await loadJson();
+  console.group("Глобальная переменная data:")
   console.log(data);
+  console.groupEnd()
 })();
  
 
@@ -37,7 +39,9 @@ function listener_view_code(btn){
       await loadJson(); 
       let keys = Object.keys(data[objec_key][view_code_key]);
       let this_key = data[objec_key][view_code_key];
-      console.log('Глобальная переменная data:', data);
+      console.group("Глобальная переменная data:")
+      console.log(data);
+      console.groupEnd()
       // console.log(keys)
       let input_view_code = document.querySelectorAll("._input_view_code");
       input_view_code.forEach((input, index) => {
@@ -56,7 +60,7 @@ function btn_view_code() {
     _mini_btn_view_code.forEach((btn) => {
       listener_view_code(btn)
     });  // Запускаем событие для мини-кнопок, если они есть в шаблоне.
-  }console.log(_mini_btn_view_code)
+  } 
 
   let btn_view_code = document.querySelectorAll("._btn_view_code");  
   btn_view_code.forEach((btn) => {
