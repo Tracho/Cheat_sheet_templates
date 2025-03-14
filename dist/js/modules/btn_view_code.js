@@ -1,7 +1,8 @@
 // import json from '../json.json';
 let data = null;
  async function loadJson() {
-  let url = document.location.protocol   + '/json/json.json'; 
+  let url = document.location.origin   + '/json/json.json';
+  // console.log(url) 
   try {
     const response = await fetch(url);
     if (!response.ok) {
