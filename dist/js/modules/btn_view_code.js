@@ -2,6 +2,12 @@
 let data = null;
  async function loadJson() {
   let url = document.location.origin   + '/json/json.json';
+  let port = parseInt(document.location.port);
+  let hostName = document.location.hostname;
+  if(port === "" || hostName !== "localhost"){
+    let pathName = document.location.pathname.split('dist/')[0] + 'json/json.json';
+    url = document.location.origin + pathName;
+  }
   // console.log(url) 
   try {
     const response = await fetch(url);
