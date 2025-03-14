@@ -5,7 +5,7 @@ let data = null;
   let port = parseInt(document.location.port);
   let hostName = document.location.hostname;
   if(port === "" || hostName !== "localhost"){
-    let pathName = document.location.pathname.split('dist/')[0] + 'json/json.json';
+    let pathName = document.location.pathname.split('dist/')[0] + 'dist/json/json.json';
     url = document.location.origin + pathName;
   }
   // console.log(url) 
