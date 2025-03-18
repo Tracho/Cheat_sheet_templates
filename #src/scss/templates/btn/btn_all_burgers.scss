@@ -127,3 +127,524 @@ $burger_btn_w_right_change_color_hidden: #00000000;
 }
 
 // #burger_btn_w_right_change end 
+
+
+// #burger_btn_transformer_x start 
+$burger_btn_transformer_x_brpx: 4px;
+$burger_btn_transformer_x_bradius: 5px;
+$burger_btn_transformer_x_w: 30px;
+$burger_btn_transformer_x_h: 30px;
+$burger_btn_transformer_x_color: #000;
+$burger_btn_transformer_x_color_hidden: #00000000;
+
+@mixin burger_btn_transformer_ab {
+  content: "";
+  position: absolute;
+  background-color: $burger_btn_transformer_x_color;
+  height: $burger_btn_transformer_x_brpx;
+  border-radius: $burger_btn_transformer_x_bradius;
+  width: 50%;
+  top: 50%;
+  left: 0%;
+  transform: translate(0%, -50%);
+  z-index: 10;
+}
+
+.burger_btn_transformer_x {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: $burger_btn_transformer_x_w;
+  height: $burger_btn_transformer_x_h;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  // overflow: hidden;
+  span {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 33%;
+
+    &:after,
+    &:before {
+      @include burger_btn_transformer_ab();
+      transition: transform 0.5s ease, top 0.5s ease;
+    }
+
+    &:before {
+      left: 50%;
+      transform: translate(0%, -50%);
+    }
+  }
+
+  span:first-child {
+
+    &::after,
+    &::before {}
+
+    &:after {
+      transform-origin: left;
+    }
+
+    &:before {
+      transform-origin: right;
+    }
+  }
+
+  span:nth-child(2) {
+
+    &:after,
+    &:before {
+      width: 100%;
+    }
+
+    &:before {
+      left: 0%;
+    }
+  }
+
+  span:last-child {
+
+    &::after,
+    &::before {}
+
+    &:after {
+      transform-origin: left;
+    }
+
+    &:before {
+      transform-origin: right;
+    }
+  }
+}
+
+
+
+.burger_btn_transformer_x[active] {
+  span {
+
+    &:after,
+    &:before {}
+  }
+
+  span:first-child {
+
+    &::after,
+    &:before {
+      top: 0%;
+    }
+
+    &:after {
+      left: 0%;
+      transform: rotate(45deg) translate(0%, -50%);
+    }
+
+    &:before {
+      transform: rotate(-45deg) translate(0%, -50%);
+    }
+  }
+
+  span:nth-child(2) {
+
+    &:after,
+    &:before {
+      top: 50%;
+      left: 0%;
+    }
+
+    &:after {
+      width: 100%;
+      transform: rotate(45deg) translate(0%, -50%);
+    }
+
+    &:before {
+      width: 100%;
+      transform: rotate(-45deg) translate(0%, -50%);
+    }
+  }
+
+  span:last-child {
+
+    &::after,
+    &:before {
+      top: 100%;
+    }
+
+    &:after {
+      transform: rotate(315deg) translate(50%, -50%);
+    }
+
+    &:before {
+      transform: rotate(45deg) translate(-50%, -50%);
+    }
+  }
+}
+
+// #burger_btn_transformer_x end 
+
+
+// #burger_btn_transformer_x2 start 
+$burger_btn_transformer_x2_brpx: 4px;
+$burger_btn_transformer_x2_bradius: 5px;
+$burger_btn_transformer_x2_w: 30px;
+$burger_btn_transformer_x2_h: 25px;
+$burger_btn_transformer_x2_color: #000;
+$burger_btn_transformer_x2_color_hidden: #00000000;
+
+@mixin burger_btn_transformer_ab {
+  content: "";
+  position: absolute;
+  background-color: $burger_btn_transformer_x2_color;
+  height: $burger_btn_transformer_x2_brpx;
+  border-radius: $burger_btn_transformer_x2_bradius;
+  width: 100%;
+  top: 50%;
+  left: 0%;
+  transform: rotate(0deg) translate(0%, -50%);
+  z-index: 10;
+}
+
+.burger_btn_transformer_x2 {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: $burger_btn_transformer_x2_w;
+  height: $burger_btn_transformer_x2_h;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  span {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 33%;
+
+    &:after,
+    &:before {
+      @include burger_btn_transformer_ab();
+    }
+
+    &:before {
+      left: 50%;
+      transform: rotate(0deg) translate(-50%, -50%);
+    }
+  }
+
+
+
+  span:nth-child(2) {
+
+    &:after,
+    &:before {
+      transform-origin: center;
+      top: 30%;
+      left: 0%;
+      transform: rotate(0deg) translate(0%, 0%);
+      transition: transform 0.5s ease, top 0.5s ease;
+    }
+  }
+
+  span:last-child,
+  span:first-child {
+
+    &::after,
+    &::before {
+      transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+    }
+  }
+}
+
+
+
+.burger_btn_transformer_x2[active] {
+  position: relative;
+
+  span:first-child {
+
+    &::after,
+    &:before {
+      opacity: 0;
+      top: 150%;
+    }
+  }
+
+  span:nth-child(2) {
+
+    &::after,
+    &:before {
+      top: 30%;
+    }
+
+    &::after {
+      transform: rotate(-45deg) translate(0%, 0%);
+
+    }
+
+    &:before {
+      transform: rotate(45deg) translate(0%, 0%);
+    }
+  }
+
+  span:last-child {
+
+    &::after,
+    &:before {
+      opacity: 0;
+      top: -50%;
+    }
+  }
+}
+
+// #burger_btn_transformer_x2 end 
+
+
+
+/* #alien_menu_btn_1 start*/
+$alien_menu_btn_1_brpx: 6px;
+$alien_menu_btn_1_bradius: 3px;
+$alien_menu_btn_1_w: 40px;
+$alien_menu_btn_1_h: 32px;
+$alien_menu_btn_1_color: #000;
+$alien_menu_btn_1_color_hidden: #00000000;
+.alien_menu_btn_1 {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+
+  position: relative;
+  height: $alien_menu_btn_1_h;
+  width: $alien_menu_btn_1_w;
+  cursor: pointer;
+}
+
+.alien_menu_btn_1 span,
+.alien_menu_btn_1 span::before,
+.alien_menu_btn_1 span::after {
+  background: $alien_menu_btn_1_color;
+  border-radius: $alien_menu_btn_1_bradius;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height:$alien_menu_btn_1_brpx;
+  margin-top: 13px;
+  top: 0%;
+
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.alien_menu_btn_1 span::before {
+  margin-top: -12px;
+}
+
+.alien_menu_btn_1 span::after {
+  margin-top: 12px;
+}
+
+.alien_menu_btn_1[active] span {
+  background: transparent;
+}
+
+.alien_menu_btn_1[active] span::before {
+  margin-top: 0;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.alien_menu_btn_1[active] span::after {
+  margin-top: 0;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/* #alien_menu_btn_1 end*/
+
+/* #alien_menu_btn_2 start*/
+$alien_menu_btn_2_brpx: 6px;
+$alien_menu_btn_2_bradius: 3px;
+$alien_menu_btn_2_w: 40px;
+$alien_menu_btn_2_h: 32px;
+$alien_menu_btn_2_color: #000;
+$alien_menu_btn_2_color_hidden: #00000000;
+@mixin alien_menu_btn_2_btn_none(){
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+.alien_menu_btn_2 {
+  @include alien_menu_btn_2_btn_none();
+
+  height: $alien_menu_btn_2_h;
+  width: $alien_menu_btn_2_w;
+  cursor: pointer;
+  position: relative;
+}
+
+.alien_menu_btn_2 span,
+.alien_menu_btn_2 span::before,
+.alien_menu_btn_2 span::after {
+  background: black;        
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: $alien_menu_btn_2_brpx;         
+  margin-top: 13px;
+  top: 0%;
+  border-radius: $alien_menu_btn_2_bradius;
+  
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotateY(180deg);
+
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
+.alien_menu_btn_2 span::before {
+  margin-top:-12px;
+}
+
+.alien_menu_btn_2 span::after {
+  margin-top:12px;
+}
+
+.alien_menu_btn_2[active] span {
+  background: transparent;
+}
+
+.alien_menu_btn_2[active] span::before {
+  margin-top: 0;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.alien_menu_btn_2[active] span::after {
+  margin-top: 0;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.alien_menu_btn_2[active] {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+/* #alien_menu_btn_2 end*/
+
+
+/* #alien_menu_btn_3 start */
+$alien_menu_btn_3_brpx: 6px;
+$alien_menu_btn_3_bradius: 3px;
+$alien_menu_btn_3_w: 40px;
+$alien_menu_btn_3_h: 32px;
+$alien_menu_btn_3_color: #000;
+$alien_menu_btn_3_color_hidden: #00000000;
+
+@mixin alien_menu_btn_3_btn_none() {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.alien_menu_btn_3 {
+  @include alien_menu_btn_3_btn_none();
+  height: $alien_menu_btn_3_h;
+  width: $alien_menu_btn_3_w;
+  cursor: pointer;
+  position: relative;
+}
+
+.alien_menu_btn_3 span,
+.alien_menu_btn_3 span::before,
+.alien_menu_btn_3 span::after {
+  background: $alien_menu_btn_3_color;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: $alien_menu_btn_3_brpx;
+  margin-top: 13px;
+  top:0%;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(deg);
+  transform: rotate(180deg);
+  border-radius: $alien_menu_btn_3_bradius;
+
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
+.alien_menu_btn_3 span::before {
+  margin-top: -12px;
+}
+
+.alien_menu_btn_3 span::after {
+  margin-top: 12px;
+}
+
+.alien_menu_btn_3[active] span {
+  background: transparent;
+}
+
+.alien_menu_btn_3[active] span::before {
+  margin-top: 0;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.alien_menu_btn_3[active] span::after {
+  transform: rotate(-45deg);
+  margin-top: 0;
+}
+/* #alien_menu_btn_3 end */

@@ -1,0 +1,61 @@
+
+@mixin btn_none() {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+@mixin p_ab_top(){
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1; 
+}
+$container_dropdown_standart_bg:#7171e9; 
+$dropdown_standart_btn_bg:#fdff85; 
+$drop_content_standart_bg:#b9ffff; 
+$drop_content_standart_max_w:500px; // max width for dropdown block
+$drop_content_standart_max_h:500px; // max height for dropdown block
+$drop_content_standart_text_wrap:nowrap; // text wrap for dropdown block Если поставить "nowrap" то размер dropdown будет больше чем родитель.
+.container_dropdown_standart{
+  display: block;
+  position: relative;
+  background-color: $container_dropdown_standart_bg;
+ 
+  button:first-child, .dropdown_standart_btn{
+    @include btn_none();
+    background-color: $dropdown_standart_btn_bg;
+  }
+
+  .drop_content_standart{
+    background-color: $drop_content_standart_bg;
+    @include p_ab_top();
+    width: auto;
+    max-width: $drop_content_standart_max_w;  
+    white-space:$drop_content_standart_text_wrap;
+
+    @media (max-width:500px) {
+      position: relative;
+    }
+      
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden; 
+    height: auto;
+    max-height:0%;
+    transition: max-height 0.5s ease, opacity 0.5s 0.1s linear, visibility 0.7s 0.01s linear;
+    pointer-events: none;
+    &[active]{
+      transition: max-height 0.5s ease, opacity 0.1s linear, visibility 0.01s linear;
+      opacity: 1;  
+      max-height: $drop_content_standart_max_h;
+      // overflow-y: auto;
+      pointer-events: initial;
+      visibility: visible;
+   }
+  } 
+}

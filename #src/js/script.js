@@ -4,7 +4,7 @@ import bnt_copy from './modules/bnt_copy.js'; bnt_copy();
 import listener_and_dorper from './modules/listener_and_dorper.js'; listener_and_dorper();
 
 
- 
+
 
 
 let _bnt_transform_code_to_json = document.querySelector("._bnt_transform_code_to_json");
@@ -13,7 +13,28 @@ _bnt_transform_code_to_json.addEventListener('click', (event) => {
   event.preventDefault();
   let jsonString = JSON.stringify(_input_code_to_json.value);
   _input_code_to_json.value = jsonString;
+
+  _input_code_to_json.select();
+  document.execCommand("copy");
+  setTimeout(() => {
+    _input_code_to_json.value = ""; 
+  }, 2000);
+
+  // Создаем Tooltip
+  let tooltip = new bootstrap.Tooltip(_bnt_transform_code_to_json, {
+    title: "Сopied!", // Текст всплывающей подсказки
+    placement: "top", // Расположение
+    trigger: "manual" // Управляем вручную
+  });
+
+  tooltip.show(); // Показываем Tooltip
+
+  // Закрываем Tooltip через 0,5 секунды
+  setTimeout(() => {
+    tooltip.hide(); 
+  }, 1000); 
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   let tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
   tooltipTriggerList.forEach(tooltip => new bootstrap.Tooltip(tooltip));
