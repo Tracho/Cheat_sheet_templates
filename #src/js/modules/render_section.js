@@ -29,7 +29,7 @@ function render_section() {
         <div class="row px-3">
           <div class="d-flex justify-content-between align-items-center mb-3 p-0">
             <h2 class="fs21 d-flex m-0">${dts.header}</h2>
-            <button class="btn btn-success d-inline-flex align-items-center _btn_view_code" data-objec_key="${dts.objec_key}" data-view_code_key="${dts.view_code_key}" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+            <button class="btn btn-success d-inline-flex align-items-center _btn_view_code" data-directory="${dts.directory}" data-d_key="${dts.d_key}" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
               <span class="me-2">View code</span>
               <ion-icon class="wh21px" name="code-working"></ion-icon>
             </button>

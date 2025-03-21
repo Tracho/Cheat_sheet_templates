@@ -1,7 +1,7 @@
 function bnt_copy() { 
   let bnt_copy = document.querySelectorAll("._bnt_copy");
   let input_view_code = document.querySelectorAll("._input_view_code");
-
+ 
   bnt_copy.forEach((btn, index) => {
     btn.addEventListener("click", () => { 
       let input = input_view_code[index];

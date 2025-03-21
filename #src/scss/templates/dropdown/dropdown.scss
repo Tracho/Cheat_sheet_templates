@@ -1,3 +1,4 @@
+// #dropdown_standart
 
 @mixin btn_none() {
   background-color: transparent;
@@ -9,53 +10,269 @@
   text-align: left;
   cursor: pointer;
 }
-@mixin p_ab_top(){
+
+@mixin p_ab_top() {
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 1; 
+  z-index: 1;
 }
-$container_dropdown_standart_bg:#7171e9; 
-$dropdown_standart_btn_bg:#fdff85; 
-$drop_content_standart_bg:#b9ffff; 
-$drop_content_standart_max_w:500px; // max width for dropdown block
-$drop_content_standart_max_h:500px; // max height for dropdown block
-$drop_content_standart_text_wrap:nowrap; // text wrap for dropdown block Если поставить "nowrap" то размер dropdown будет больше чем родитель.
-.container_dropdown_standart{
+
+$container_dropdown_standart_bg: #7171e9;
+$dropdown_standart_btn_bg: #fdff85;
+$drop_content_standart_bg: #b9ffff;
+$drop_content_standart_max_w: 500px; // max width for dropdown block
+$drop_content_standart_max_h: 300px; // max height for dropdown block
+$drop_content_standart_text_wrap: nowrap; // text wrap for dropdown block Если поставить "nowrap" то размер dropdown будет больше чем родитель.
+
+.container_dropdown_standart {
   display: block;
   position: relative;
   background-color: $container_dropdown_standart_bg;
- 
-  button:first-child, .dropdown_standart_btn{
+
+  button:first-child,
+  .dropdown_standart_btn {
     @include btn_none();
     background-color: $dropdown_standart_btn_bg;
   }
 
-  .drop_content_standart{
+  .drop_content_standart {
     background-color: $drop_content_standart_bg;
     @include p_ab_top();
     width: auto;
-    max-width: $drop_content_standart_max_w;  
-    white-space:$drop_content_standart_text_wrap;
+    max-width: $drop_content_standart_max_w;
+    white-space: $drop_content_standart_text_wrap;
 
     @media (max-width:500px) {
       position: relative;
     }
-      
+
     visibility: hidden;
     opacity: 0;
-    overflow: hidden; 
+    overflow: hidden;
     height: auto;
-    max-height:0%;
-    transition: max-height 0.5s ease, opacity 0.5s 0.1s linear, visibility 0.7s 0.01s linear;
+    max-height:0px;
     pointer-events: none;
-    &[active]{
-      transition: max-height 0.5s ease, opacity 0.1s linear, visibility 0.01s linear;
-      opacity: 1;  
+    transition: max-height 0.5s ease,
+    opacity 0.4s 0.1s linear,
+    visibility 0.7s 0.01s linear,
+    margin-top 0.4s 0.1s linear; 
+
+
+    &[active] {
+      transition: max-height 0.7s ease, opacity 0.1s linear, visibility 0.01s linear, margin-top 0.2s linear;
+      opacity: 1;
       max-height: $drop_content_standart_max_h;
       // overflow-y: auto;
       pointer-events: initial;
       visibility: visible;
-   }
-  } 
+    }
+  }
 }
+
+// #dropdown_standart
+
+// #dropdown_standart_style1 #style1
+@mixin btn_none() {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: $dcss1_btn_color;
+  text-align: left;
+  cursor: pointer;
+}
+
+@mixin p_ab_top() {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+}
+
+$container_dropdown_standart_style1_bg: inherit; //parent background color 
+
+$dropdown_standart_style1_btn_bg: inherit; // background color btn
+$dcss1_btn_color: #000000; // btn text color 
+
+$dropdown_standart_style1_svg_wh: 18px; // svg width height
+$dcss1_svg_fill: none; // svg fill color 
+$dcss1_svg_stroke: #000; // svg stroke color
+
+
+$drop_content_standart_style1_bg: #ffffff;
+$drop_content_standart_style1_max_w: 500px; // max width for dropdown block
+$drop_content_standart_style1_max_h: 300px; // max height for dropdown block
+$drop_content_standart_style1_text_wrap: nowrap; // text wrap for dropdown block Если поставить "nowrap" то размер dropdown будет больше чем родитель.
+$dcss1_scroll_y: none; // scroll activity 
+$dcss1_br: 5px; //border-radius droper 
+$dcss1_mt: 5px; //margin-top dropper active
+$dcss1_b: 1px; //border 
+$dcss1_bc: #929292; //border color
+$dcss1_ul_ptb: 10px; // ul padding top and bottom 
+$dcss1_li_plr: 5px; // li padding left and right
+$dcss1_li_ptb: 10px; // li padding top and bottom
+$dcss1_li_mrtb: 5px; // li margin left and right
+$dcss1_li_hover_bg: #ebebeb; // li hover and li[active]  background-color
+$dcss1_a_color: inherit; // color text <a>
+
+.container_dropdown_standart_style1 {
+  display: block;
+  position: relative;
+  background-color: $container_dropdown_standart_style1_bg;
+
+  &:hover {
+    .dropdown_standart_style1_svg {
+      animation: hover_left_right_dropdown_standart_style1_svg 0.3s ease;
+
+      @keyframes hover_left_right_dropdown_standart_style1_svg {
+        0% {
+          left: -2px;
+        }
+
+        50% {
+          left: 1px;
+        }
+
+        100% {
+          left: 0px;
+        }
+      }
+    }
+
+    button:first-child,
+    .dropdown_standart_style1_btn {
+      &[active] {
+        .dropdown_standart_style1_svg {
+          animation: hover_top_bot_dropdown_standart_style1_svg 0.3s ease;
+
+          @keyframes hover_top_bot_dropdown_standart_style1_svg {
+            0% {
+              top: -2px;
+            }
+
+            50% {
+              top: 1px;
+            }
+
+            100% {
+              top: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  button:first-child,
+  .dropdown_standart_style1_btn {
+    @include btn_none();
+    background-color: $dropdown_standart_style1_btn_bg;
+    display: flex;
+    align-items: center;
+
+    .dropdown_standart_style1_svg {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+
+      svg {
+        width: $dropdown_standart_style1_svg_wh;
+        height: $dropdown_standart_style1_svg_wh;
+
+        path {
+          fill: $dcss1_svg_fill;
+          stroke: $dcss1_svg_stroke;
+        }
+      }
+    }
+
+    &[active] {
+      .dropdown_standart_style1_svg {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+
+  .drop_content_standart_style1 {
+    background-color: $drop_content_standart_style1_bg;
+    @include p_ab_top();
+    width: auto;
+    max-width: $drop_content_standart_style1_max_w;
+    white-space: $drop_content_standart_style1_text_wrap;
+    border-radius: $dcss1_br;
+    border: $dcss1_b solid $dcss1_bc;
+
+    @media (max-width:500px) {
+      position: relative; 
+      margin-top: 0;
+    }
+
+    margin-top: 0;
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    height: auto;
+    max-height:0px;
+    pointer-events: none;  
+
+    transition: max-height 0.5s ease,
+    opacity 0.4s 0.1s linear,
+    visibility 0.7s 0.01s linear,
+    margin-top 0.4s 0.1s linear; 
+  
+    &[active] {
+      transition: max-height 0.7s ease, opacity 0.1s linear, visibility 0.01s linear, margin-top 0.2s linear;
+      opacity: 1;
+      height: auto;
+      max-height: $drop_content_standart_style1_max_h;
+      overflow-y: $dcss1_scroll_y;
+      pointer-events: initial;
+      visibility: visible;
+      margin-top: $dcss1_mt; 
+    }
+
+    ul {
+      margin: 0;
+      padding: $dcss1_ul_ptb 0px;
+      list-style: none;
+
+      li {
+        padding: $dcss1_li_plr $dcss1_li_ptb;
+        margin: $dcss1_li_mrtb 0px;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+          background-color: $dcss1_li_hover_bg;
+        }
+
+        li[active] {
+          background-color: $dcss1_li_hover_bg;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+          display: flex;
+          padding: 0;
+          width: 100%;
+        }
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+// #dropdown_standart_style1 #style1

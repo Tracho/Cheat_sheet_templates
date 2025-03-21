@@ -58,7 +58,8 @@ $or_li_a_color_hover:#b60909; // Hover цвет ссылок в навигаци
     .or_navi_row_li{
       margin: 0px $or_li_mr;
       
-      a:first-child{
+      > a:first-child,
+        button:first-child > span{
         font-size: $or_li_a_fs;
         text-decoration: none;
         color: $or_li_a_color;

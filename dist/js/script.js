@@ -1,6 +1,6 @@
 import render_section from "./modules/render_section.js"; render_section();
 import btn_view_code from './modules/btn_view_code.js'; btn_view_code();
-import bnt_copy from './modules/bnt_copy.js'; bnt_copy();
+// import bnt_copy from './modules/bnt_copy.js'; bnt_copy();
 import listener_and_dorper from './modules/listener_and_dorper.js'; listener_and_dorper();
 
 

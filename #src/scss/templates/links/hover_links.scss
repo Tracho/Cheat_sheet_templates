@@ -1,0 +1,30 @@
+// #hover_center_line
+$hcl_color:#000;
+$hcl_hover_color:#000000;
+$hcl_height:2px; // размер полосы 
+$hcl_bottom:0%; // высота полосы
+.hover_center_line{  
+  position: relative;
+  text-decoration: none;
+  color:$hcl_color;
+  &:hover{
+      color:$hcl_hover_color; 
+  }
+  &:before {
+      display: block;
+      position: absolute;
+      content: "";
+      height: $hcl_height;
+      width: 0;
+      background: $hcl_color;
+      transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+      left: 50%;
+      bottom:$hcl_bottom;
+  }
+  &:hover:before, &[active]:before{
+      width: 100%;
+      left: 0;
+  }  
+  
+}
+// #hover_center_line
