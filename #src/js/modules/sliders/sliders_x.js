@@ -11,6 +11,7 @@ function Sliders_x() {
     let counter = 0;
     let timer = Number(container.dataset.timer); 
     let interval = null;
+    let isSliderVisible = false;
  
 
     let SLIDENONE = () =>{ 
@@ -29,7 +30,7 @@ function Sliders_x() {
         } else if (index >= counter + 1 && (index !== counter)) {
           thisSlide.setAttribute("active_before", '');
         }
-      });
+      }); 
       slide_x[counter].setAttribute("active", '');
       if(counter === 0){
         slide_x[slide_x.length - 1].setAttribute("active_after", '');
@@ -67,11 +68,27 @@ function Sliders_x() {
       });
     });
 
+    // Intersection Observer для запуска/остановки слайдера
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          isSliderVisible = true;
+          StartInterval();
+        } else {
+          isSliderVisible = false;
+          clearInterval(interval);
+        }
+      });
+    }, { threshold: 0.2 }); // 20% слайдера должно быть видно
+    observer.observe(container);
+
+    // Изменяем StartInterval чтобы не запускался если слайдер не виден
     function StartInterval() {
-      clearInterval(interval); // Очищаем предыдущий интервал, если он существует
-      interval = setInterval(() => {
-        REFRESHSLID();
+      if (!isSliderVisible) return;
+      if (interval !== null) {clearInterval(interval);} // Очищаем предыдущий интервал, если он существует
+      interval = setInterval(() => { 
         counter = counter < slide_x.length - 1 ? counter + 1 : 0; 
+        REFRESHSLID(); 
       }, timer);
     } 
     StartInterval(); // Запускаем интервал при инициализации
@@ -85,9 +102,9 @@ function Sliders_x() {
     });
 
     left.addEventListener('click', () => {
-      clearInterval(interval); // Останавливаем интервал при нажатии на кнопку "Назад"
-      counter = counter > 0? counter - 1 : slide_x.length - 1;
-      REFRESHSLID();
+      clearInterval(interval); // Останавливаем интервал при нажатии на кнопку "Назад"  
+      counter = counter > 0 ? counter - 1 : slide_x.length - 1; 
+      REFRESHSLID(counter);
     });
 
     right.addEventListener('click', () => {
@@ -119,7 +136,10 @@ function Sliders_x() {
         REFRESHSLID();
       }
       startX = 0;
-      endX = 0;
+      endX = 0; 
+      setTimeout(() => {
+        StartInterval();
+      }, timer * 2);
     });
   });
 }
