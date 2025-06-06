@@ -4,6 +4,7 @@ import btn_view_code from './modules/btn_view_code.js'; btn_view_code();
 import listener_and_dorper from './modules/listener_and_dorper.js'; listener_and_dorper();
 import Sliders_op from './modules/sliders/sliders_op.js'; Sliders_op();
 import Sliders_x from './modules/sliders/sliders_x.js'; Sliders_x();
+import Sliders_grid from './modules/sliders/sliders_grid.js'; Sliders_grid();
 
 
 
