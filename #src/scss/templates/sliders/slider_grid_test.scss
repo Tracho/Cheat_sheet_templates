@@ -1,35 +1,35 @@
 @mixin ab_center {
-  position    : absolute;
-  top         : 50%;
-  left        : 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   margin-right: -50%;
-  transform   : translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 @mixin d_center {
-  display        : flex;
+  display: flex;
   justify-content: center;
-  align-items    : center;
+  align-items: center;
 }
 
 $dcss1_btn_color: #000000; // btn text color  
 
 @mixin btn_none() {
   background-color: transparent;
-  border          : none;
-  padding         : 0;
-  margin          : 0;
-  font            : inherit;
-  color           : $dcss1_btn_color;
-  text-align      : left;
-  cursor          : pointer;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: $dcss1_btn_color;
+  text-align: left;
+  cursor: pointer;
 }
 
 @mixin sliders_af_be() {
-  transition    : transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
   pointer-events: none;
-  z-index       : 0;
-  opacity       : 0;
+  z-index: 0;
+  opacity: 0;
 }
 
 .container_sliders_grid {
@@ -37,31 +37,31 @@ $dcss1_btn_color: #000000; // btn text color
 
   .container_card_grid {
     position: relative;
-    height  : 500px;
-    width   : 100%;
+    height: 500px;
+    width: 100%;
     overflow: hidden;
 
 
     .slide_grid:first-child {
-      display     : block;
-      z-index     : 0;
+      display: block;
+      z-index: 0;
       // opacity: 1;
       // transform: translateX(0%);
     }
 
     .slide_grid {
-      position    : absolute;
-      display     : block;
-      width       : 100%;
-      height      : 100%;
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
       // transform: translateX(100%); // Изменено с translateY на translateX
-      transition  : transform 0.5s ease;
-      transform   : translateX(0%);
-      z-index     : -1;
+      transition: transform 0.5s ease;
+      transform: translateX(0%);
+      z-index: -1;
 
       &[active] {
         transform: translateX(0%); // Изменено с translateY на translateX
-        z-index  : 2;
+        z-index: 2;
       }
 
       &[active_after] {
@@ -77,95 +77,84 @@ $dcss1_btn_color: #000000; // btn text color
 
       .img_slide_ab_grid {
         @include ab_center();
-        width : 100%;
+        width: 100%;
         height: 100%;
 
         img {
           object-fit: cover;
-          width     : 100%;
-          height    : 100%;
+          width: 100%;
+          height: 100%;
         }
       }
 
       .slide_title_grid {
         position: relative;
-        z-index : 5;
-        height  : 100%;
+        z-index: 5;
+        height: 100%;
 
-        display        : flex;
+        display: flex;
         justify-content: center;
-        align-items    : center;
-        flex-direction : column;
-        padding        : 50px;
+        align-items: center;
+        flex-direction: column;
+        padding: 50px;
       }
     }
   }
 
   &[data-grid="2"] {
     .slide_grid {
-      width : 50%;
+      width: 50%;
       height: 100%;
-
       &[active_before] {
         transform: translateX(200%); // Изменено с translateY на translateX
         @include sliders_af_be();
       }
     }
   }
-
   &[data-grid="3"] {
     .slide_grid {
-      width : 33.33%;
+      width: 33.33%;
       height: 100%;
-
       &[active_before] {
         transform: translateX(300%); // Изменено с translateY на translateX
         @include sliders_af_be();
       }
     }
   }
-
   &[data-grid="4"] {
     .slide_grid {
-      width : 25%;
+      width: 25%;
       height: 100%;
-
       &[active_before] {
         transform: translateX(400%); // Изменено с translateY на translateX
         @include sliders_af_be();
       }
     }
   }
-
   &[data-grid="5"] {
     .slide_grid {
-      width : 20%;
+      width: 20%;
       height: 100%;
-
       &[active_before] {
         transform: translateX(500%); // Изменено с translateY на translateX
         @include sliders_af_be();
       }
     }
   }
-
   &[data-grid="6"] {
     .slide_grid {
-      width : 16.66%;
+      width: 16.66%;
       height: 100%;
-
       &[active_before] {
         transform: translateX(600%); // Изменено с translateY на translateX
         @include sliders_af_be();
       }
     }
   }
-
   &[data-grid="7"] {
     .slide_grid {
-      width : 14.28%;
+      width: 14.28%;
       height: 100%;
-
       &[active_before] {
         transform: translateX(700%); // Изменено с translateY на translateX
         @include sliders_af_be();
@@ -173,13 +162,12 @@ $dcss1_btn_color: #000000; // btn text color
     }
   }
 
-  &[data-pagi="hidden"] {
+  &[data-pagi="hidden"]{
     .create_navi_pagi_grid {
       display: none;
     }
   }
-
-  &[data-mobpagi="hidden"] {
+  &[data-mobpagi="hidden"]{
     @media screen and (max-width: 768px) {
       .create_navi_pagi_grid {
         display: none;
@@ -190,18 +178,18 @@ $dcss1_btn_color: #000000; // btn text color
 
 $btn_navi_l_r_size: 50px; // btn size left and right
 
-$btn_navi_grid_sice     : 20px; // btn size navigation
-$btn_nive_grid_bg       : #d9d9d993;
+$btn_navi_grid_sice: 20px; // btn size navigation
+$btn_nive_grid_bg: #d9d9d993;
 $btn_nive_grid_bg_active: #ffffff;
 
 .container_navi_sliders_grid {
   .navi_left_right_grid {
     @include ab_center();
-    width          : 100%;
-    display        : flex;
+    width: 100%;
+    display: flex;
     justify-content: space-between;
-    z-index        : 10;
-    pointer-events : none;
+    z-index: 10;
+    pointer-events: none;
 
     button {
       pointer-events: auto;
@@ -209,7 +197,7 @@ $btn_nive_grid_bg_active: #ffffff;
       transition: transform 0.3s ease;
 
       &:hover {
-        transform : scale(0.9);
+        transform: scale(0.9);
         transition: transform 0.3s ease;
 
         &:active {
@@ -221,7 +209,7 @@ $btn_nive_grid_bg_active: #ffffff;
         display: block;
 
         svg {
-          width : $btn_navi_l_r_size;
+          width: $btn_navi_l_r_size;
           height: $btn_navi_l_r_size;
         }
       }
@@ -230,32 +218,21 @@ $btn_nive_grid_bg_active: #ffffff;
 
   .create_navi_pagi_grid {
     @include ab_center();
-    top      : inherit;
-    bottom   : 0%;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 250px;
-    width    : 100%;
-    z-index  : 10;
-
-    @media screen and (max-width: 768px) {
-      justify-content: space-evenly;
-    }
+    top: inherit;
+    bottom: 0%;
+    display: flex;
+    z-index: 10;
 
     button {
       @include btn_none();
       background-color: $btn_nive_grid_bg;
-      width           : $btn_navi_grid_sice;
-      height          : $btn_navi_grid_sice;
-      border-radius   : 50px;
-      margin          : 0 5px;
-      border          : 2px solid;
+      width: $btn_navi_grid_sice;
+      height: $btn_navi_grid_sice;
+      border-radius: 50px;
+      margin: 0 5px;
+      border: 2px solid;
 
       transition: background-color 0.2s ease;
-
-      @media screen and (max-width: 768px) {
-        margin: 3px;
-      }
 
       &[active] {
         background-color: $btn_nive_grid_bg_active;
@@ -264,7 +241,7 @@ $btn_nive_grid_bg_active: #ffffff;
       transition: transform 0.3s ease;
 
       &:hover {
-        transform : scale(0.9);
+        transform: scale(0.9);
         transition: transform 0.3s ease;
 
         &:active {

@@ -1,48 +1,35 @@
 @@include("./html/body_top.html")
 <br><br><br>
-<section class="_render_section"
-data-header="Slider opacity"
-data-details_title="
+<section class="_render_section" data-header="Slider opacity" data-details_title="
 # Простой Slider opacity. Не влияет на свои копии, так что можно пере использовать на странице.
 # Установка времени через html атрибут <b>data-timer='2000'</b>
 # Кнопки навигации слайдера находятся в js <b>'create_navi.insertAdjacentHTML('beforeend', `button class='btn_navi_op'...'</b>
 
-"
-data-d_key="Sliders_op"
-data-directory="Sliders"
->  
-@@include("./html/modules/templates/sliders/sliders_op.html")
+" data-d_key="Sliders_op" data-directory="Sliders">
+  @@include("./html/modules/templates/sliders/sliders_op.html")
 </section>
 
-<section class="_render_section"
-data-header="Slider x"
-data-details_title="
+<section class="_render_section" data-header="Slider x" data-details_title="
 #  Slider x, или Слайдер карусель. Адаптивный и оптимизированный, а также с системой Touch, для телефона. Если юзер не видет слайдер, то он и не запуститься. Анимированный через CSS transition.
 # Установка времени через html атрибут <b>data-timer='2000'</b>
 # Кнопки навигации слайдера находятся в js <b>'create_navi.insertAdjacentHTML('beforeend', `button class='btn_navi_op'...'</b>
 
-"
-data-d_key="Sliders_x"
-data-directory="Sliders"
->  
-@@include("./html/modules/templates/sliders/sliders_x.html")
+" data-d_key="Sliders_x" data-directory="Sliders">
+  @@include("./html/modules/templates/sliders/sliders_x.html")
 </section>
 
-<section class="_render_section"
-data-header="Slider gdrid"
-data-details_title="
-#  Slider x, или Слайдер карусель. Адаптивный и оптимизированный, а также с системой Touch, для телефона. Если юзер не видет слайдер, то он и не запуститься. Анимированный через CSS transition.
-# Установка времени через html атрибут <b>data-timer='2000'</b>
-# Кнопки навигации слайдера находятся в js <b>'create_navi.insertAdjacentHTML('beforeend', `button class='btn_navi_op'...'</b>
-
-"
-data-d_key="Sliders_x"
-data-directory="Sliders"
->  
-@@include("./html/modules/templates/sliders/sliders_grid.html")
+<section class="_render_section" data-header="Slider gdrid" data-details_title="
+# <div><h2>Slider gdrid</h2></div> <p> Адаптивный и оптимизированный, а также с системой Touch, для телефона. Если юзер не видет слайдер, то он и не запуститься. Анимированный через CSS transition.</p>
+# <div><h3>Настройки слайдер</h3><p>Прописывать у родителя с классом <mark>container_sliders_grid</mark><ul><li>Установка времени:<mark>data-timer='2000'</mark><li>Количество картинок на слайде:<mark>data-grid='3'</mark><li>Перелистывание картинок:<mark>data-step='2'</mark><li>Скрыть навигацию:<mark>data-pagi='hidden'</mark><li>Скрыть навигацию momarkail:<mark>data-momarkpagi='hidden'</mark></ul></div>
+" data-d_key="Sliders_x" data-directory="Sliders">
+  <div>
+    @@include("./html/modules/templates/sliders/sliders_grid.html")
+    <br>
+    <hr><br>
+    @@include("./html/modules/templates/sliders/sliders_grid_test.html")
+  </div>
 </section>
- 
- 
-  
+
+
+
 @@include("./html/body_bot.html")
-
