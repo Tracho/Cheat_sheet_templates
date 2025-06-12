@@ -2205,12 +2205,6 @@ details p:last-child {
     display: none;
   }
 
-  .container_navi_sliders_grid .create_navi_pagi_grid {
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-  }
-
   .container_navi_sliders_grid .create_navi_pagi_grid button {
     margin: 3px;
   }

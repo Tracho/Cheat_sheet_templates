@@ -124,7 +124,7 @@ function Sliders_x() {
 
     container.addEventListener('touchend', () => {
       let diffX = endX - startX;
-      if (Math.abs(diffX) > 50) { // порог свайпа
+      if (Math.abs(diffX) > 100 && endX !== 0 && startX !== 0) { // порог свайпа
         clearInterval(interval);
         if (diffX < 0) {
           // свайп влево — следующий слайд

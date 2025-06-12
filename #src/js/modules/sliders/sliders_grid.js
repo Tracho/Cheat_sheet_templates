@@ -39,7 +39,7 @@ function Sliders_grid() {
       } else {
         container.dataset.grid = container.hasAttribute('data-oldgrid') === false ? grid : Number(container.dataset.oldgrid); // Устанавливаем grid в значение из data-атрибута
       }
-
+ 
 
       create_navi.innerHTML = ''; // Очищаем предыдущие кнопки навигации
       function CreatePagination() {
@@ -94,10 +94,7 @@ function Sliders_grid() {
       }; ADDACTIVE();
 
       let REFRESHSLID = () => {
-        ADDACTIVE();
-        console.log(counter);
-        console.log(counter + grid);
-        console.log(slide_grid.length);
+        ADDACTIVE(); 
         if (pagi == true || (window.innerWidth < 768 && mobpagi == true)) {
           let pagi_scounter = (Math.round(counter / step) >= btn_navi_grid.length) ? 0 : Math.round(counter / step);
           btn_navi_grid[pagi_scounter].setAttribute("active", '');
@@ -188,9 +185,9 @@ function Sliders_grid() {
         endX = e.touches[0].clientX;
       });
 
-      container.addEventListener('touchend', () => {
-        let diffX = endX - startX;
-        if (Math.abs(diffX) > 50) { // порог свайпа
+      container.addEventListener('touchend', () => {  
+        let diffX = endX - startX; 
+        if (Math.abs(diffX) > 100 && endX !== 0 && startX !== 0) { // порог свайпа
           clearInterval(interval);
           if (diffX < 0) {
             // свайп влево — следующий слайд
