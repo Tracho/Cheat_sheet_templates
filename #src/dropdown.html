@@ -6,61 +6,32 @@ data-details_title="
 # Что для кнопки, что для меню, добавляется атрибут <b>active</b>
 #Слушатель для кнопки чтобы найти меню класс <b>_btn_listener</b> и <b>data-where_droper='название'</b>
 #Слушатель меню чтобы найти кнопку класс <b>_this_droper</b> и <b>data-where_listener='название'</b>"
-data-d_key="dropdown_standart, test"
-data-directory="dropdown, tests2"
+data-d_key="dropdown_standart, dropdown_standart_style1"
+data-directory="dropdown, dropdown"
 > 
-<div class="d-flex justify-content-around align-items-center flex-wrap">
-  <!-- dropdown_standart -->
-  <div class="d-inline-flex flex-column align-items-center m-3">
-    <button class="btn btn-outline-success d-inline-flex justify-content-center align-items-center mb-3 _mini_btn_view_code" 
-    data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
-    data-d_key="dropdown_standart"
-    data-directory="dropdown">
-    <ion-icon name="code-slash"></ion-icon></button>
-  
-
-    <div class="container_dropdown_standart">
-      <button class="dropdown_standart_btn _btn_listener" data-where_droper="dropdown_standart" type="button" aria-label="Toggle DropDown">
-        Standart dropdown
-      </button>
-      <div class="drop_content_standart _this_droper" data-where_listener='dropdown_standart'>
-        <ul>
-          <li><a href="#" title="Error blanditiis explicabo">Error blanditiis explicabo</a></li>
-          <li><a href="#" title="necessitatibus">Necessitatibus</a></li>
-          <li><a href="#" title="Lorem ipsum dolor">Lorem ipsum dolor</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- dropdown_standart_style1 -->
-  <div class="d-inline-flex flex-column align-items-center m-3">
-    <button class="btn btn-outline-success d-inline-flex justify-content-center align-items-center mb-3 _mini_btn_view_code" 
-    data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
-    data-d_key="dropdown_standart_style1"
-    data-directory="dropdown">
-    <ion-icon name="code-slash"></ion-icon></button>
-  
-
-    <div class="container_dropdown_standart_style1">
-      <button class="dropdown_standart_style1_btn _btn_listener" data-where_droper="dropdown_standart_style1" type="button" aria-label="Toggle DropDown">
-        <span>Standart dropdown</span> 
-        <span class="dropdown_standart_style1_svg">
-          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M184 112l144 144-144 144"/></svg>
-        </span>
-      </button>
-      <div class="drop_content_standart_style1 _this_droper" data-where_listener='dropdown_standart_style1'>
-        <ul>
-          <li><a href="#" title="Error blanditiis explicabo">Error blanditiis explicabo</a></li>
-          <li><a href="#" title="necessitatibus">Necessitatibus</a></li>
-          <li><a href="#" title="Lorem ipsum dolor">Lorem ipsum dolor</a></li>
-        </ul>
-      </div> 
-    </div>
-  </div>
-
-  <!--  -->
-</div> 
+@@include("./html/modules/templates/dropdown/dropdown_click.html")
 </section> 
- 
+
+<section class="_render_section"
+data-header="DropDown Hover"
+data-details_title="
+# Что для кнопки, что для меню, добавляется атрибут <b>active</b>
+#Слушатель для кнопки чтобы найти меню класс <b>_btn_listener</b> и <b>data-where_droper='название'</b>
+#Слушатель меню чтобы найти кнопку класс <b>_this_droper</b> и <b>data-where_listener='название'</b>"
+data-d_key="dropdown_hover"
+data-directory="dropdown"
+> 
+@@include("./html/modules/templates/dropdown/dropdown_hover.html")
+</section>
+ <br><br><br>
+ <div class="m-5 p-5 "></div><div class="m-5 p-5 "></div><div class="m-5 p-5 "></div>
+
+ <div>
+  <h3>Настройки DropDown hover</h3>
+  <ul>
+    <li>Добавить язычок к окну. Либо к классу <b>drop_content_hover</b> добавить атрибут <mark>tongue</mark> или к тегу <b>ul</b> добавить класс <mark>tongue_style</mark>.
+    Пример кода: <code> div class="drop_content_hover _dropdownMenu" <mark>tongue</mark> data-dropdown_name='dropdown_hover' </code> или <code>  ul class="<mark>tongue_style</mark>"</code>
+    </li>
+  </ul>
+ </div>
 @@include("./html/body_bot.html")

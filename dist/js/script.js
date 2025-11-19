@@ -2,6 +2,8 @@ import render_section from "./modules/render_section.js"; render_section();
 import btn_view_code from './modules/btn_view_code.js'; btn_view_code();
 // import bnt_copy from './modules/bnt_copy.js'; bnt_copy();
 import listener_and_dorper from './modules/listener_and_dorper.js'; listener_and_dorper();
+import dropdown_click from './modules/dropdown/dropdown_click.js'; dropdown_click();
+
 import Sliders_op from './modules/sliders/sliders_op.js'; Sliders_op();
 import Sliders_x from './modules/sliders/sliders_x.js'; Sliders_x();
 import Sliders_grid from './modules/sliders/sliders_grid.js'; Sliders_grid();
